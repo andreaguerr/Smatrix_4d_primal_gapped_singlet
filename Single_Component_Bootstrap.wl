@@ -166,7 +166,7 @@ Tpw[\[ScriptL]_][Nmax_,Mmax_]:=Tpw[\[ScriptL]][Nmax,Mmax]=Join[{TpwTh[\[ScriptL]
 
 (* Building improved positivity constraints *)
 ClearAll[PositivityList];
-PositivityList[Nd_,Md_][tt_]:=PositivityConstraintsSub[Nd,Md][tt]=Block[{t},
+PositivityList[Nd_,Md_][tt_]:=PositivityList[Nd,Md][tt]=Block[{t},
 Table[Amplitude[s,t,4-s-t][Nd,Md]/.t->tt//Conjugate//Im,{s,sgrid}]//Chop[#,10^-prec]&];
 ClearAll[\[ScriptCapitalT]list];
 \[ScriptCapitalT]list=Reverse[SetPrecision[2 (1+Cos[\[Pi] Range[10+1]/(10+1)]),precgrid]]~Join~Cases[Reverse[SetPrecision[2 (1+Cos[\[Pi] Range[2000+1]/(2000+1)]),precgrid]][[1;;-1;;2]],a_/;a>3+999/1000]//Sort;
