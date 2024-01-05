@@ -157,7 +157,7 @@ TpwTh[\[ScriptL]_]:=1/(32 \[Pi]) (-2 KroneckerDelta[0,\[ScriptL]]+(2 KroneckerDe
 
 (* Building partial wave projection of Ansatz *)
 ClearAll[Tpw];
-Tpw[\[ScriptL]_][Nmax_,Mmax_]:=Tpw[\[ScriptL]][Nmax,Mmax]=Join[{TpwTh[\[ScriptL]]},Table[intReg[\[ScriptL]][\[Sigma]center0,n],{n,0,Nmax}],Flatten[Table[intReg[\[ScriptL]][\[Sigma],n],{n,1,Mmax},{\[Sigma],\[Sigma]centerlist}],1],Flatten[Table[If[n+m<=Nmax,intReg[\[ScriptL]][\[Sigma]center0,n,m],Nothing],{n,1,Nmax},{m,1,n}],1],Flatten[Table[If[n+m<=Mmax,intReg[\[ScriptL]][\[Sigma],n,m],Nothing],{n,1,Mmax},{m,1,n},{\[Sigma],\[Sigma]centerlist}],1]]//Transpose//Chop[#,10^-prec]&;
+Tpw[\[ScriptL]_][Nmax_,Mmax_]:=Tpw[\[ScriptL]][Nmax,Mmax]=Join[{TpwTh[\[ScriptL]]},Table[intReg[\[ScriptL]][\[Sigma]center0,n],{n,0,Nmax}],Flatten[Table[intReg[\[ScriptL]][\[Sigma],n],{n,1,Mmax},{\[Sigma],\[Sigma]centerlist}],1],Flatten[Table[If[n+m<=Nmax,intReg[\[ScriptL]][\[Sigma]center0,n,m],Nothing],{n,1,Nmax},{m,1,n}],1],Flatten[Table[If[n+m<=Mmax,intReg[\[ScriptL]][\[Sigma],n,m],Nothing],{n,1,Mmax},{m,1,n},{\[Sigma],\[Sigma]centerlist}],2]]//Transpose//Chop[#,10^-prec]&;
 
 
 (* ::Subsection::Closed:: *)
