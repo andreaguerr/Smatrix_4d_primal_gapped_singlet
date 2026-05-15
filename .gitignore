@@ -1,0 +1,8 @@
+.DS_Store
+
+# Local Mathematica / SDPB caches and generated numerical output.
+school/notebooks/.ck
+school/notebooks/integral_storage_bin/
+school/notebooks/auxiliary_storage_bin/
+school/notebooks/runs/
+school/notebooks/*.tar.gz
